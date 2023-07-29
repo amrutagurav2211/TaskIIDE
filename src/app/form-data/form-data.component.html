@@ -1,0 +1,38 @@
+<div style="margin-left: 530px; margin-top: 80px;">
+<p-card header="Fill the Form " [style]="{ width: '460px' }">
+    
+    <form name="myForm" #frm="ngForm" (ngSubmit)="onSubmitData(frm)">
+                
+        <div class="form-group">
+            <input type="hidden" name="id" class="form-control" #id="ngModel" ngModel [(ngModel)]="idd" >
+
+            <label>Task Name :</label>
+            <input type="text" name="task" class="form-control" #task="ngModel" ngModel [(ngModel)]="tsk"
+            required [ngClass]="{'is-invalid':frm.submitted && task.invalid}" >
+            <div *ngIf="frm.submitted && task.invalid" class="invalid-feedback">
+                Task Name is required.
+            </div><br>
+        
+            <label >Title :</label>
+            <input type="text" name="title" class="form-control" #title="ngModel" ngModel [(ngModel)]="tl"
+            required [ngClass]="{'is-invalid':frm.submitted && title.invalid}" >
+            <div *ngIf="frm.submitted && title.invalid" class="invalid-feedback">
+                Task Name is required.
+            </div><br><br>
+        
+            <label >Task (Complete or not) :</label>&nbsp;&nbsp;&nbsp;
+
+            <input type="radio" name="Comp" class=" form-check-input" value="Yes" #Comp="ngModel" ngModel [(ngModel)]="com">&nbsp;
+            <label>Yes</label>&nbsp;&nbsp;
+
+            <input type="radio" name="Comp" class=" form-check-input" value="No" #Comp="ngModel" ngModel [(ngModel)]="com">&nbsp;
+            <label>No</label><br><br>
+        </div>
+    
+        <button  class="btn btn-success" type="submit" >Submit Data</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button  class="btn btn-primary" type="button" (click)="UpdateRecord(frm)">Update Data</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button  class="btn btn-secondary" type="reset">Clear Data</button>
+   
+</form>
+</p-card>
+</div>

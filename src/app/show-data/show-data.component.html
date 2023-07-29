@@ -1,0 +1,29 @@
+<div style="margin-top: 80px;">
+    <h4 style="color: blue;  text-align: center;">Task Details</h4>
+
+<p-table [value]="dt" [tableStyle]="{ 'min-width': '50rem' }">
+
+    <ng-template pTemplate="caption">
+        <button pButton pRipple label="new" icon="pi-pi-plus" class="p-button-success" routerLink="formData"></button>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Task Name</th>
+            <th>Title</th>
+            <th>Task(Complete or not) :</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-dt>
+        <tr>
+            <td>{{ dt.task }}</td>
+            <td>{{ dt.title }}</td>
+            <td>{{ dt.Comp }}</td>
+            <td><button class="btn btn-danger" (click)="onDel(dt)">Delete</button></td>
+            <td><button class="btn btn-warning" (click)="UpdateData(dt)" routerLink="/formData">Update</button></td>
+        </tr>
+    </ng-template>
+</p-table>
+</div>
